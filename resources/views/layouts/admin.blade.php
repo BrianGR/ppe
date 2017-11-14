@@ -49,10 +49,7 @@
               
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <small class="bg-red">Online</small>
-                  <span class="hidden-xs">USUARIO</span>
-                </a>
+                <a href="#"><i class='fa fa-user fa-fw'></i>  {!!Auth::user()->name!!}  </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">

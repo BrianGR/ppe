@@ -1,11 +1,10 @@
 <?php
 
-namespace sisventas\Http\Middleware;
+namespace App\Http\Middleware;
 
-use Session;
 use Closure;
 
-class MDusuarioadmin
+class MDusuariostandard
 {
     /**
      * Handle an incoming request.
@@ -16,11 +15,12 @@ class MDusuarioadmin
      */
     public function handle($request, Closure $next)
     {
+        
         $usuario_actual=\Auth::user();
-        if($usuario_actual->tipo_usuario!='Administrador'){
-            Session::flash('message-error','Debe ser Usuario Adminitrador para poder acceder a  esta secci�n');
-            return redirect()->to('ventas/venta');
+        if($usuario_actual->tipoUsuario!=0){
+         return view("mensajes.msj_rechazado")->with("msj","Esta seccion es solo visible para el usuario estandard <br/> usted aun no ha sido asignado como usuario standard , consulte al administrador del sistema");
         }
         return $next($request);
+    
     }
 }

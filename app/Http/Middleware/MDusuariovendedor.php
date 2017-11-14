@@ -16,8 +16,8 @@ class MDusuariovendedor
     public function handle($request, Closure $next)
     {
         $usuario_actual=\Auth::user();
-        if($usuario_actual->tipo_usuario=='Vendedor'){
-            Session::flash('message-error','Debe ser Usuario Adminitrador para poder acceder a  esta sección');
+        if($usuario_actual->tipo_usuario!='Vendedor'){
+            Session::flash('message-error','Debe ser Usuario Adminitrador para poder acceder a  esta secciï¿½n');
             return redirect()->to('home');
         }
         return $next($request);
