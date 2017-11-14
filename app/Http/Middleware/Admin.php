@@ -24,7 +24,7 @@ class Admin
         //if($this->auth->user()->tipoUsuario != 1){
         if(($this->auth->user()->tipo_usuario != 'Administrador') ){
 
-            Session::flash('message-error','Debe ser Usuario Adminitrador para poder acceder a  esta sección');
+            Session::flash('message-error','Debe ser Usuario Adminitrador para poder acceder a  esta sección,redirigiendo a vista principal');
             return redirect()->to('home');
         }
         return $next($request);
