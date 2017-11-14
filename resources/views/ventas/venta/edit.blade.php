@@ -43,9 +43,9 @@
 	@endforeach
 	</table>
 	</div>
-	<a href="" data-target="#modal-cancelar-{{$venta->idventa}}" data-toggle="modal"><button class="btn btn-danger">Anular</button></a> 
+	<a href="" data-target="{{ Form::open(array('route' => array('VentaController@anular', 'id'), 'method' => 'DELETE', 'role' => 'form', 'id' => 'form-delete')) }}<button class="btn btn-danger">Anular</button></a>
 		    <a href="{{URL::action('VentaController@crear_pdf',$venta->idventa)}}" target=newtab "><button class="btn btn-primary">Imprimir</button></a>
-		    <a class="btn btn-default" href="/ventas/venta" role="button">Regresar</a>
+		<button id="guardar" class="btn btn-primary"  type="submit">Guardar</button>
 	</div>
 </div>
 

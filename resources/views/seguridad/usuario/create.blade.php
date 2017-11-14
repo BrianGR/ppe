@@ -72,6 +72,32 @@
                                 @endif
                             </div>
                         </div>
+
+        <div class="form-group{{ $errors->has('rut') ? ' has-error' : '' }}">
+            <label for="rut" class="col-md-4 control-label">Rut</label>
+
+            <div class="col-md-6">
+                <input id="rut" type="text" class="form-control" name="rut" value="{{ old('rut') }}" required autofocus>
+
+                @if ($errors->has('rut'))
+                    <span class="help-block">
+                                        <strong>{{ $errors->first('rut') }}</strong>
+                                    </span>
+                @endif
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Tipo de Usuario</label>
+                <select name="tipo_usuario" class="form-control">
+                    <option value="Administrador"> Administrador </option>
+                    <option value="Vendedor"> Vendedor </option>
+
+                </select>
+            </div>
+        </div>
 		<div class="form-group">
 			<button class="btn btn-primary" type="submit">Guardar</button>
 			<button class="btn btn-danger" type="reset">Cancelar</button>

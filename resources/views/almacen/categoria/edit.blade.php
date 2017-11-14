@@ -21,7 +21,7 @@
 			<input type="text" name="nombre" class="form-control" value="{{$categoria->Nombre}}" placeholder="Nombre...">
 		</div>
 		<div class="form-group">
-			<label for="Descripccion">Descripccion</label>
+			<label for="Descripccion">Descripcion</label>
 			<input type="text" name="descripccion" class="form-control"  value="{{$categoria->Descripccion}}" placeholder="Descripccion...">
 		</div>
 		<div class="form-group">

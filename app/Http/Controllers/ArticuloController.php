@@ -16,7 +16,7 @@ class ArticuloController extends Controller
 { 
    public function __construct()
     {
-	//$this->middleware('auth');
+	$this->middleware('auth');
     }
 
     public function index(Request $request)
@@ -64,6 +64,14 @@ class ArticuloController extends Controller
 	//}	
 }
 
+	public function edit($id)
+	{
+		$articulo = Articulo::findOrFail($id);
+		$impuestos=DB::table('impuesto')->where('Estado','=','A')->get();
+		$categorias=DB::table('categoria')->where('condicion','=','1')->get();
+		return view("almacen.articulo.edit",["articulo"=>$articulo,"categoria"=>$categorias,"impuestos"=>$impuestos]);
+	}
+
   public function update(ArticuloFormRequest $request, $id)
 	{
 		$articulo =Articulo::findOrFail($id);
@@ -85,14 +93,6 @@ class ArticuloController extends Controller
 		return Redirect::to('almacen/articulo');
 }
 
-	public function ValidateForm(Request $request)
-	{
-
-	print_r($request->all());
-	$this->validate($request,[
-		'codigo'=>'required|codigo|unique:articulo'
-		]);
-	}
 
 
     public function show($id)
@@ -100,19 +100,12 @@ class ArticuloController extends Controller
 		return view("almacen.articulo.show",["articulo"=>Articulo::findOrFail($id)]);
     }
 
-	public function edit($id)
-	{
-	$articulo = Articulo::findOrFail($id);
-	$impuestos=DB::table('impuesto')->where('Estado','=','A')->get();
-	$categorias=DB::table('categoria')->where('condicion','=','1')->get();
-	return view("almacen.articulo.edit",["articulo"=>$articulo,"categoria"=>$categorias,"impuestos"=>$impuestos]);
-	}
 
 	public function destroy($id)
 	{
 	$articulo=Articulo::findOrFail($id);
 	$articulo->estado='Inactivo';
-	$articulo->update();
+	$articulo->delete();
 	return Redirect::to('almacen/articulo');
 	}
 	

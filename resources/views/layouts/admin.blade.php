@@ -203,7 +203,7 @@
         <div class="pull-right hidden-xs">
           <b>Version</b> 1.0.0
         </div>
-        <strong>Copyright &copy; 2015-2020 PPE LTDA</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017 PPE LTDA</a>.</strong> All rights reserved.
       </footer>
     <!-- jQuery 2.1.4 -->
     <script src="\js\numeral.js"></script>

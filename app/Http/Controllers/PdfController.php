@@ -27,9 +27,10 @@ class PdfController extends Controller
         $data = $datos;
         $ventas=DB::table('venta as v')
          ->join('persona as p','v.idcliente','=','p.idpersona');
+        $persona=Persona::all();
 
-        $date = date('Y-m-d');
-        $view =  \View::make($vistaurl, compact('data', 'date', 'ventas'))->render();
+        $date = date('d-m-Y');
+        $view =  \View::make($vistaurl, compact('data','persona','date', 'ventas'))->render();
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
         if($tipo==1){return $pdf->stream('reporte',["ventas"=>$ventas]);}

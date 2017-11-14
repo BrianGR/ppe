@@ -7,14 +7,15 @@
    </head>
   <body>
     <header class="clearfix">
-      <div id="logo">
-        <img src="imagenes\logo.png">
-      </div>
+        <div>
+            <img src="imagenes\logo.png" width="125px" height="125px">
+        </div>
       <div>
-      <h1>Factura de Venta # {{$venta->num_comprobante}}{{$venta->serie_comprobante}}-{{$venta->idventa}}</h1>
+      <h1>Factura de Venta # {{$venta->num_comprobante}}</h1>
+          <h2>Fecha: {{$venta->fecha_hora}}</h2>
       <div id="pago">
-      <p><h3>Informaciòn de pago: Consignaciòn Bancaria: Bancolombia, cuenta de ahorros # 122-978169-59 a nombre de Victor Hugo Noguera</h3>
-      <h3>Regimen simplificado a Nombre de Victor Hugo Noguera Lievano Nit: 1121859274-9</h3></p>
+      <p><h3>klkldkl</h3>
+      <h3>balalal</h3></p>
       </div>
       <div id="alcance"><b>Alcance: </b>{{$venta->descripccion}}
       </div>
@@ -29,7 +30,7 @@
        <tr>
             <th>Codigo</th>
             <th>Imagen</th>
-            <th>Descripcción</th>
+            <th>Descripción</th>
             <th>Cantidad</th>
             <th>Precio</th>
             <th>Total</th>
@@ -87,9 +88,7 @@
       <div>Condiciones del servicio:</div>
       <textarea cols="30" rows="5" id="comment">{{$venta->condiciones}}</textarea>
       <div>PPE ltda - Factura creada por Sistema de ventas PPE ltda
-      <figure id="imagenfooter"> 
-            <img src="imagenes\footer.png">
-      </figure>
+
       </div>
     </footer>
 </body>

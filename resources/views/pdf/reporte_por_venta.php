@@ -128,17 +128,25 @@ table {
                   </thead>
                     <tbody>
                   <?php foreach($data as $venta){ ?>
-                 
-                    <tr>
+
+                  <?php foreach($persona as $per){ ?>
+                  <?php if (($venta->idcliente)==($per->idpersona)) { ?>
+
+                      <tr>
                       <td style="width: 10px" ><?= $venta->idventa; ?></td>
                       <td style="width: 10px" ><?= $venta-> tipo_comprobante; ?></td>
                       <td style="width: 10px" ><?= $venta-> fecha_hora; ?></td>
-                      <td style="width: 10px" ><?= $venta-> idcliente; ?></td>
-                      <td style="width: 10px" ><?= $venta-> estado; ?></td>
+                          <td style="width: 10px" ><?= $per->nombre ; ?></td>
+                          <td style="width: 10px" ><?= $venta->estado ; ?></td>
+
                       <td style="width: 10px" ><?= $venta-> total_venta; ?></td>
                     </tr>
                     
                     <?php  } ?>
+                  <?php  } ?>
+                  <?php  } ?>
+
+
                     
                   </tbody>
 
@@ -156,5 +164,4 @@ table {
   
 </body>
 </html>
-
 

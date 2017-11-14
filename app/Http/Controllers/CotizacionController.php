@@ -18,7 +18,7 @@ class CotizacionController extends Controller
      public function __construct()
     {
 
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index(Request $request)
@@ -63,11 +63,11 @@ class CotizacionController extends Controller
     			$cotizacion->num_comprobante=$request->get('num_comprobante');
                 $cotizacion->total_venta=$request->get('total_venta');
                 $cotizacion->descripccion=$request->get('descripccion');
-    			$mytime = Carbon::now('America/Bogota');
+    			$mytime = Carbon::now('America/Santiago');
     			$cotizacion->fecha_hora=$mytime->toDateTimeString();
     			//$ingreso->impuesto='16';//$request->get('impuesto');//16%
                 $cotizacion->impuesto=(float)$request->get('impuesto');//16%
-                $cotizacion->estado='A';
+                $cotizacion->estado='Activo';
                 $cotizacion->condiciones=$request->get('condiciones');
                 //$cotizacion->anticipo=$request->get('anticipo');
                 //$cotizacion->idproyecto=$request->get('idproyecto');
@@ -140,7 +140,7 @@ class CotizacionController extends Controller
 	   	public function destroy($id)
     	{
     		$cotizacion=cotizacion::findOrFail($id);
-			$cotizacion->Estado='C';
+			$cotizacion->Estado='Cancelado';
 			$cotizacion->update();
 			return Redirect::to('cotizaciones');
     	}

@@ -69,7 +69,7 @@ echo Form::open(['url'=>'articulo.update']);
 </div>
 <div class="col-lg-12 col-md-12 col-dm-12 col-xs-12">
 	<div class="form-group">
-			<label for="descripccion">Descripcción</label>
+			<label for="descripccion">Descripción</label>
 			<textarea type="text" id="descripccion" name="descripccion" class="form-control" placeholder="Descripccion del articulo" rows="2">{{$articulo->descripccion}}</textarea>
 		</div>
 </div>

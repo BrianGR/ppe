@@ -7,11 +7,12 @@
   </head>
   <body>
     <header class="clearfix">
-      <div id="logo">
-        <img src="imagenes\logo.png">
+      <div>
+        <img src="imagenes\logo.png" width="125px" height="125px">
       </div>
       <div>
-      <h1>Cotización # {{$cotizacion->num_comprobante}}{{$cotizacion->serie_comprobante}}-{{$cotizacion->idcotizacion}}</h1>
+      <h1>Cotización # {{$cotizacion->num_comprobante}}</h1>
+          <h2>Fecha: {{$cotizacion->fecha_hora}}</h2>
        <div id="logo">Alcance: {{$cotizacion->descripccion}}</div>
       <table>
         <tr>
@@ -76,7 +77,7 @@
         <div><textarea cols="26" rows="8" >{{$cotizacion->condiciones}}</textarea></div> 
       </div>
     <footer>
-      <div>VHNGROUP: Tecnologia Automatizando su Hogar. - Factura creada en fisico y digital por SisventasVHNGroup</div>
+      <div>PPE ltda. Factura creada por Sistema de ventas PPE ltda</div>
     <div id="footer">
         <img src="imagenes\footer.png">
       </div>

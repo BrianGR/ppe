@@ -114,7 +114,7 @@
 	<div class="form-group">
 			<button class="btn btn-primary" type="submit">Guardar</button>
 			<button class="btn btn-danger" type="reset">Restablecer</button>
-			<a class="btn btn-primary" href="/compras/proveedor" role="button">Cancelar</a>
+
 </form>
 	</div>
 </div>

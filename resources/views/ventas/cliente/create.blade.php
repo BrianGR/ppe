@@ -74,7 +74,7 @@
 	<div class="form-group">
 			<label>Tipo de cuenta</label>
 			<select name="tipocuenta" class="form-control">
-				<option value="">Seleccione Opcción </option>
+				<option value="">Seleccione Opción </option>
 				<option value="Ahorros"> Ahorros </option>
 				<option value="Corriente"> Corriente </option>
 			</select>

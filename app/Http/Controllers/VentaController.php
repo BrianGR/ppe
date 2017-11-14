@@ -21,7 +21,7 @@ class VentaController extends Controller
    public function __construct()
     {
 
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index(Request $request)
@@ -45,7 +45,7 @@ class VentaController extends Controller
     	public function create()
     	{
             $idventa=DB::table('venta')->max('idventa')+1; //as incredible
-    		$impuestos1=DB::table('impuesto')->where('Estado','=','A')->get(); 
+    		$impuestos1=DB::table('impuesto')->where('Estado','=','A')->get();
             $personas=DB::table('persona')->where('tipo_persona','!=','Proveedor')->get(); //si el provedor tambien es cliente, retirara el where
             $articulos=DB::table('articulo as art')
             ->join('detalle_ingreso as di','art.idarticulo','=','di.idarticulo')
@@ -99,10 +99,10 @@ class VentaController extends Controller
             
     }
 
-    public function cancelar($id)    
+    public function anular($id)
     {
     $venta=venta::findOrFail($id);
-    $venta->Estado='C';
+    $venta->Estado='Cancelado';
     $venta->update();
     return Redirect::to('venta');
    }
@@ -140,12 +140,12 @@ class VentaController extends Controller
     			$venta->serie_comprobante=$request->get('serie_comprobante');
     			$venta->num_comprobante=$request->get('num_comprobante');
                 $venta->total_venta=$request->get('total_venta');
-    			$mytime = Carbon::now('America/Bogota');
+    			$mytime = Carbon::now('America/Santiago');
     			$venta->fecha_hora=$mytime->toDateTimeString();
     			//$ingreso->impuesto='16';//$request->get('impuesto');//16%
                 $venta->impuesto=(float)$request->get('impuesto');//16%
                 $venta->descripccion=$request->get('descripccion');
-                $venta->estado='A';
+                $venta->estado='Activo';
                 $venta->anticipo=$request->get('anticipo');
                 $venta->condiciones=$request->get('condiciones');
                 //$venta->idproyecto=$request->get('idproyecto');

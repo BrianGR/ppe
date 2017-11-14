@@ -15,19 +15,21 @@
 		<th>Cliente</th>
 		<th>Alcance</th>
 		<th>Comprobante</th>
+		<th>Estado Cotizacion</th>
 		<th>Total</th>
-		<th>Opcciones</th>
+		<th>Opciones</th>
 	</thead>
 	@foreach($cotizacion as $ven)
 	<tr>
 		<td>{{$ven->fecha_hora}}</td>
 		<td>{{$ven->nombre}}</td>
 		<td>{{$ven->descripccion}}</td>
-		<td>{{$ven->serie_comprobante.'-'.$ven->num_comprobante.'-'.$ven->estado}}</td>
+		<td>{{$ven->serie_comprobante.'-'.$ven->num_comprobante}}</td>
+		<td>{{$ven->estado}}</td>
 		<td>{{$ven->total_venta}}</td>
 		<td>
 			<a href="{{URL::action('CotizacionController@show',$ven->idcotizacion)}}"><button class="btn btn-primary btn-xs">Detalles</button></a>
-			<a href="" data-target="#modal-delete-{{$ven->idcotizacion}}" data-toggle="modal"><button class="btn btn-danger btn-xs">Anular</button></a>
+			<a href="" data-target="#modal-delete-{{$ven->idcotizacion}}" data-toggle="modal"><button class="btn btn-danger btn-xs">Anular </button></a>
 		   	<a href="{{URL::action('CotizacionController@crear_pdf',$ven->idcotizacion)}}" target=newtab "><button class="btn btn-primary btn-xs">Imprimir</button></a>
 		</td>
 	</tr>

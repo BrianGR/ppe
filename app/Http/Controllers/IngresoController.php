@@ -20,7 +20,7 @@ class IngresoController extends Controller
    public function __construct()
     {
 
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index(Request $request)
@@ -65,7 +65,7 @@ class IngresoController extends Controller
                 $ingreso->fecha_hora=$mytime->toDateTimeString();
                 //$ingreso->impuesto='16';//$request->get('impuesto');//16%
                 $ingreso->impuesto=(float)$request->get('impuesto');//16%
-                $ingreso->estado='A';
+                $ingreso->estado='Activo';
                 $ingreso->anticipo=$request->get('anticipo');
                 $ingreso->save();
 
@@ -115,8 +115,8 @@ class IngresoController extends Controller
         public function destroy($id)
         {
             $ingreso=ingreso::findOrFail($id);
-            $ingreso->Estado='C';
-            $ingreso>update();
+            $ingreso->Estado='Cancelado';
+            $ingreso->update();
             return Redirect::to('compras/ingreso');
     }
 }

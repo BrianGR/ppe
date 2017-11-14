@@ -58,7 +58,7 @@
         <div><textarea cols="26" rows="8">{{$cotizacion->condiciones}}</textarea></div>
       </div>
     <footer>
-      <div>VHNGROUP: Tecnologia Automatizando su Hogar. - Factura creada en fisico y digital por SisventasVHNGroup</div>
+      <div>PPE ltda. Factura creada por Sistema de ventas PPE ltda</div>
     <div id="footer">
         <img src="imagenes\footer.png">
       </div>
