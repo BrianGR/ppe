@@ -1,6 +1,8 @@
 
 @extends ('layouts.admin')
 @section ('contenido')
+	@include('alerts.success')
+	@include('alerts.errors')
 <div class="row">
 	<div class="col-lg-8 col-md-8 col-dm-8 col-xs-12">
 	<h3> Listado de ventas <a href="/ventas/venta/create"><button class="btn btn-success">Nuevo</button></a></h3>
